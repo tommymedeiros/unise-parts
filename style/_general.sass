@@ -1,0 +1,106 @@
+// Box Sizing
+*,
+*:after,
+*:before
+  @include box-sizing(border-box)
+
+html
+  font-size: 18px
+
+body
+  @include font(Roboto, Light)
+  background-color: $blue-0
+  color: $gray-3
+
+a
+  color: $blue-2
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+
+// // Trilha de migalhas
+// .breadcrumb
+//   ul
+//     list-style-type: none
+//     padding-left: 0
+//     li
+//       display: inline
+//       a
+//         color: $gray-3
+//         font-size: $small
+
+#page-content
+  @include display(flex)
+  background-color: White // $gray-0
+  box-shadow: $shadow-0
+  margin: auto
+  width: 85%
+#region-main
+  @include flex(3)
+[id^="block-region-side"]
+  @include flex(1)
+  padding-top: ($gutter / 2)
+  &.hidden
+    display: none
+  #page-site-index &[id$="pre"]
+    @include transition(left .75s)
+    background-color: $gray-0
+    left: -300px
+    height: 100%
+    position: absolute
+    width: 300px
+    z-index: 1
+    &.visible
+      box-shadow: $shadow-right-0
+      left: 0
+      overflow-y: auto
+      .hamburger-menu
+        right: $gutter
+    // Hamburger menu
+    .hamburger-menu
+      $height: 5px
+      $width: 30px
+      @include size($width 50px)
+      @include transition(right .75s)
+      cursor: pointer
+      position: absolute
+      right: - $width - 65px // 65px = padding-left do main
+      top: ($gutter / 2) // 12px
+      &:before
+        background-color: $gray-3
+        box-shadow: 0 ($height * 2) 0 0 $gray-3, 0 ($height * 4) 0 0 $gray-3
+        content: ""
+        height: $height
+        left: 0
+        position: absolute
+        top: $height * 3
+        width: $width
+      &:hover:before
+        background-color: $gray-4
+        box-shadow: 0 ($height * 2) 0 0 $gray-4, 0 ($height * 4) 0 0 $gray-4
+
+
+// Acessibilidade
+.accesshide,
+.skip-block,
+.skiplinks
+  @include hide
+
+// Mensagens de erro
+.menuitem .logininfo,
+.loginerrors .error,
+.notifyproblem
+  color: Red
+  font-size: $x-small
+
+// Overlay
+.overlay
+  @include position(fixed, 0 null null 0)
+  @include size(100%)
+  @include transition(opacity .25s, visibility .25s 0s)
+  background-color: Black // transparentize(Black, .4)
+  opacity: 0
+  visibility: hidden // display: none
+  &.visible
+    opacity: .5 // 1
+    visibility: visible // display: block

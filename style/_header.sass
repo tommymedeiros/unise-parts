@@ -1,0 +1,111 @@
+// Barra do governo federal
+#barra-brasil
+  @include position(relative)
+  z-index: 1
+
+// Header geral que contém todos os outros elementos abaixo
+header[role="banner"]
+  position: absolute
+  width: 100%
+
+// Navegação superior geral
+nav[role="navigation"]
+  @include clearfix
+  background-color: $gray-2
+  position: relative
+  z-index: 1
+  // Logotipo da escola
+  h1.brand
+    float: left
+    margin: 0 0 0 $gutter
+    max-width: 210px
+    width: 15%
+    @media (max-width: $tablet)
+      margin: 0
+    a
+      @include hide-text
+      background:
+        image: url([[pix:theme|uniserpro-virtual]])
+        position: 50%
+        repeat: no-repeat
+        size: 100%
+      display: inherit
+      height: 70px
+      line-height: 70px
+      .notloggedin &
+        height: 125px
+        line-height: 125px
+  // Dentro dos cursos
+  .pagelayout-course &,
+  .pagelayout-incourse &
+    background-color: transparentize($gray-2, .5)
+  // Não logado
+  .notloggedin &
+    @include linear-gradient($gray-3, transparent)
+    background-color: transparent
+    h1.brand
+      max-width: 280px
+      width: 20%
+
+// Links principais e informações do usuário, assim como os botões e menus de login/logout
+ul.custom-menu
+  float: right
+  margin:  0 $gutter 0 0
+  padding: 0
+  @media (max-width: $tablet)
+    margin: 0 .8vw 0 0
+  li
+    color: $gray-0
+    display: inline-block
+    line-height: 70px
+    a
+      @include font(Roboto, Regular, $small-responsive, normal, uppercase)
+      color: inherit
+      display: inherit
+      font-size: $small
+      line-height: 35px
+      padding: 0 ($gutter / 2)
+      text-transform: uppercase
+      &:hover
+        color: White
+      @media (max-width: $tablet)
+        padding: 0 .8vw
+    .notloggedin &
+      line-height: 125px
+      &.logininfo
+        a:last-child
+          @include pill($blue-1)
+
+// Caixas de login/logout e detalhes do perfil
+body:not(.path-login)
+  .logininfobox,
+  .userprofilebox
+    @include border-radius(4px)
+    @include calc(padding, "#{$gutter} / 2")
+    @include calc(top, "50% + (35px / 2)") // 35px e a altura de cada link
+    @include transition(opacity .25s, visibility .25s 0s)
+    background-color: White
+    box-shadow: $shadow-2
+    opacity: 0
+    position: absolute
+    visibility: hidden // display: none
+    width: 420px
+    &:before
+      @include filter(drop-shadow(0 -4px 2px rgba( 0, 0, 0, .4)))
+      @include position(absolute)
+      border:
+        color: White transparent
+        style: solid
+        width: 0 5px 5px
+      content: ""
+      right: $gutter
+      top: -5px
+    &.visible,
+    #page-login-index &
+      opacity: 1
+      visibility: visible // display: block
+  .logininfobox
+    @include calc(right, "#{$gutter} * 2") // A ser automatizado por JavaScript
+    h2
+      display: none
+    // Obs.: as definições do formulário estão no _forms.sass

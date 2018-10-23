@@ -1,0 +1,105 @@
+// Estilos das páginas de entrada e internas dos cursos, incluindo fóruns, atividades, etc.
+
+.pagelayout-course,
+.pagelayout-incourse
+  background-color: $gray-0
+  #page-header
+    background-color: #f1eec8 // Cor temporaria para marcacao de layout
+    height: 315px
+    padding: 95px 0 0 7.5%
+  // Trilha de migalhas
+  .breadcrumb
+    ul
+      list-style-type: none
+      padding-left: 0
+      li
+        display: inline
+        a
+          color: $gray-3
+          font-size: $small
+  #page-content
+    background-color: transparent
+    box-shadow: none
+    margin-top: -($gutter * 4)
+  #region-main,
+  #block-region-side-pre
+    margin-right: $gutter
+  .course-content
+    >ul
+      padding-left: 0
+      >li
+        background-color: White
+        box-shadow: $shadow-0
+        margin-bottom: $gutter !important
+        outline: 1px solid shade($gray-1, 5%)
+        .content
+          margin: 0 !important
+        h3
+          font-size: $large
+          line-height: 1
+        .summary
+          height: 134px // 200px - 22px (h2) - 44px (margins do h2)
+        ul.section
+          list-style-type: none
+          margin: 0
+          padding: $gutter
+      >li#section-0
+        padding: 50px
+      >li:not(#section-0)
+        @include position(relative)
+        max-height: 200px
+        min-height: 200px
+        &.visible
+          &,
+          >div
+            max-height: none
+          .right.side
+            width: 100%
+          .content
+            background-color: $gray-1
+            // overflow-y: visible
+          ul.section
+            background-color: White
+        .left.side
+          @include size(240px 200px)
+          background-color: $gray-3
+          padding: 0
+          position: absolute
+          p
+            @include position(absolute, 150px null null 0)
+            color: White
+            background-color: transparentize($green, .2)
+            width: 240px
+        .left.side,
+        .right.side
+          p
+            @include font(Roboto, Regular, $medium, ($gutter * 2))
+            margin: 0
+        .right.side
+          @include calc(width, "100% - 240px")
+          @include position(absolute, null 0 0 null)
+          background-color: $gray-1
+          bottom: 0
+          cursor: pointer
+          // height: 50px
+          padding: 0 0 0 $gutter
+          p
+            text-align: left
+        .content
+          // @include calc(width, "100% - 240px")
+          max-height: inherit
+          min-height: inherit
+          padding-left: 0
+          padding-right: 0
+          overflow-y: hidden
+          padding-bottom: $gutter * 2
+          h3,
+          .summary
+            @include calc(margin-left, "240px + #{$gutter}")
+            // margin-left: 240px + $gutter
+  .block
+    background-color: White // $Gelo
+    box-shadow: $shadow-0 // outline: 1px solid $gray-2
+.pagelayout-course
+  .breadcrumb
+    display: none

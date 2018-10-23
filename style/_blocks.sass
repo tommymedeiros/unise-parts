@@ -1,0 +1,171 @@
+// Estilos relacionados aos blocos apenas, não às colunas onde estão inseridos
+.block
+  padding: ($gutter / 2) $gutter
+  h2
+    @include font(OpenSans, Regular, $large)
+    @include transition(color .5s)
+    margin: 0
+    // margin:
+    //   bottom: ($gutter / 2)
+    //   top: 0
+  ul
+    list-style-type: none
+  .content
+    font-size: $small
+  &:hover
+    h2
+      &:active
+        color: $gray-2
+      &:hover
+        cursor: pointer
+  &.hidden
+    h2
+      color: $gray-1
+      margin: 0
+    .content
+      height: 0
+      overflow-y: hidden
+    &:hover
+      h2
+        color: $gray-3
+.block_action
+  display: none
+
+// Calendar
+.block_calendar_month .day
+  text-align: center
+  &.today
+    background-color: White
+  &.weekend
+    color: Red
+
+// .calendartable
+//   width: 100%
+//   th, td
+//     width: 14%
+//     vertical-align: top
+//     text-align: center
+//     border-width: 1px
+// .calendar_event_course
+//   background-color: #FFD3BD
+// .calendar_event_global
+//   background-color: #D6F8CD
+// .calendar_event_group
+//   background-color: #FEE7AE
+// .calendar_event_user
+//   background-color: #DCE7EC
+// .path-calendar
+//   .calendar-controls
+//     .previous, .next, .current
+//       display: block
+//       float: left
+//       width: 12%
+//     .previous
+//       text-align: left
+//     .current
+//       text-align: center
+//       width: 76%
+//     .next
+//       text-align: right
+//   .maincalendar
+//     vertical-align: top
+//     padding: 0
+//     .bottom
+//       text-align: center
+//       padding: 5px 0 0 0
+//     .heightcontainer
+//       height: 100%
+//       position: relative
+//     .calendarmonth
+//       width: 98%
+//       margin: 10px auto
+//       ul
+//         margin: 0
+//         li
+//           list-style-type: none
+//           margin-top: 4px
+//       td
+//         height: 5em
+//     .calendar-controls
+//       .previous, .next
+//         width: 30%
+//       .current
+//         width: 39.95%
+//     .controls
+//       width: 98%
+//       margin: 10px auto
+//     .eventlist .event
+//       width: 100%
+//       margin-bottom: 10px
+//       border-spacing: 0px
+//       border-collapse: separate
+//       border-width: 1px
+//       border-style: solid
+//       .topic .name
+//         float: left
+// .path-calendar .maincalendar .eventlist .event .topic .date
+//   float: right
+// .path-calendar .maincalendar .eventlist .event .subscription
+//   float: left
+//   clear: left
+// .path-calendar .maincalendar .eventlist .event .course
+//   float: left
+//   clear: left
+// .path-calendar .maincalendar
+//   .eventlist .event
+//     .side
+//       width: 32px
+//     .commands a
+//       margin: 0 3px
+//   .header
+//     overflow: hidden
+//     .buttons
+//       float: right
+// .path-calendar .filters table
+//   border-collapse: separate
+//   border-spacing: 2px
+//   width: 100%
+// #page-calendar-export .indent
+//   padding-left: 20px
+// .path-calendar .cal_courses_flt label
+//   margin-right: .45em
+// .block
+//   .minicalendar
+//     width: 100%
+//     margin: 10px auto
+//     th
+//       padding: 2px
+//       font-size: 0.8em
+//     td
+//       padding: 2px
+//       font-size: 0.8em
+//       &.weekend
+//         color: #A00
+//   .calendar-controls
+//     .previous
+//       text-align: left
+//       display: block
+//       float: left
+//       width: 12%
+//     .current
+//       float: left
+//       text-align: center
+//       display: block
+//       width: 76%
+//     .next
+//       text-align: right
+//       display: block
+//       float: left
+//       width: 12%
+//   .calendar_filters
+//     ul
+//       list-style: none
+//       margin: 0
+//     li
+//       margin-bottom: .2em
+//       span img
+//         padding: 0 .2em
+//     .eventname
+//       padding-left: .2em
+// .block .content h3.eventskey
+//   margin-top: 0.5em

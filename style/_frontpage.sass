@@ -1,0 +1,218 @@
+// Estilos relativos apenas à página de entrada da escola
+
+// #page-site-index
+#page-site-index
+  #page-content
+    margin-top: 150px
+    overflow: hidden
+    position: relative
+  // #frontpage-course-list
+  //   @include columns(2 475px)
+  [role="main"]
+    padding: 0 65px 45px
+  .profilepicture
+    display: inline-block
+    left: 50%
+    margin-left: -50px // 50px é a metade da largura da imagem
+    position: fixed
+    a
+      display: inherit
+    img
+      @include border-radius(50px)
+      @include filter(drop-shadow(0 0 2px rgba( 0, 0, 0, .2 )))
+  #basic-navigation
+    @include display(flex)
+    justify-content: center
+    margin: 16px 0 32px
+    a
+      @include font(Lato, Regular, $medium)
+      color: $gray-3
+      &:hover
+        color: $gray-4
+  #basic-navigation,
+  #courses-navigation
+    list-style: none
+    li
+      display: inline-block
+      *
+        margin: 0
+      a
+        display: inherit
+        text-decoration: none
+  #courses-navigation
+    @include display(flex)
+    flex-wrap: wrap
+    justify-content: center
+    margin: 50px 0
+    li
+      a
+        @include border-radius(2px)
+        @include font(Lato, Bold, $medium, ($gutter * 2))
+        @include transition(background-color .5s, color 1.5s)
+        border: 1px solid $gray-1
+        color: $gray-2
+        padding: 0 10px
+        text-transform: uppercase
+        &:hover
+          background-color: $blue-0
+          color: darken($gray-2, 10%)
+  .coursebox
+    float: left
+    height: 175px
+    max-width: 475px // Temporário?
+    overflow: hidden // Temporário?
+    position: relative
+    .info,
+    .content
+      margin-left: 185px // Largura da miniatura + 10px
+    img
+      @include position(absolute, 0 null null 0)
+  .paging-morelink
+    clear: left
+  // Quando não-logado
+  &.notloggedin // .notloggedin:not(.path-login)
+    // header[role="banner"]
+    //   position: absolute
+    //   width: 100%
+    #page-content
+      margin: 0
+      width: 100%
+    [role="main"]
+      background-color: $blue-0
+      min-height: 600px // Altura do #site-news-forum
+      padding: 0
+      .box
+        margin-bottom: $gutter * 2
+        text-align: center
+        a.courses
+          @include pill($blue-1)
+          margin-right: $gutter
+        #coursesearch
+          display: inline-block
+    // Sistema de notícias/destaques
+    #site-news-forum
+      @include display(flex)
+      background:
+        color: $gray-2
+        image: url([[pix:theme|geometric]])
+        // image: repeating-linear-gradient(transparent, transparent 50px, rgba(0,0,0,.4) 50px, rgba(0,0,0,.4) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.4) 63px, rgba(0,0,0,.4) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.5) 116px, rgba(0,0,0,.5) 166px, rgba(255,255,255,.2) 166px, rgba(255,255,255,.2) 169px, rgba(0,0,0,.5) 169px, rgba(0,0,0,.5) 179px, rgba(255,255,255,.2) 179px, rgba(255,255,255,.2) 182px, rgba(0,0,0,.5) 182px, rgba(0,0,0,.5) 232px, transparent 232px), repeating-linear-gradient(270deg, transparent, transparent 50px, rgba(0,0,0,.4) 50px, rgba(0,0,0,.4) 53px, transparent 53px, transparent 63px, rgba(0,0,0,.4) 63px, rgba(0,0,0,.4) 66px, transparent 66px, transparent 116px, rgba(0,0,0,.5) 116px, rgba(0,0,0,.5) 166px, rgba(255,255,255,.2) 166px, rgba(255,255,255,.2) 169px, rgba(0,0,0,.5) 169px, rgba(0,0,0,.5) 179px, rgba(255,255,255,.2) 179px, rgba(255,255,255,.2) 182px, rgba(0,0,0,.5) 182px, rgba(0,0,0,.5) 232px, transparent 232px), repeating-linear-gradient(125deg, transparent, transparent 2px, rgba(0,0,0,.2) 2px, rgba(0,0,0,.2) 3px, transparent 3px, transparent 5px, rgba(0,0,0,.2) 5px)
+        // image: repeating-linear-gradient(45deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px, hsla(197, 62%, 11%, 0.5) 10px, hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px, hsla(197, 62%, 11%, 0.5) 40px, hsla(197, 62%, 11%, 0.5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px, hsla(5, 53%, 63%, 0.5) 60px, hsla(5, 53%, 63%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 80px, hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.5) 90px, hsla(5, 53%, 63%, 0.5) 110px, hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 120px, hsla(197, 62%, 11%, 0.5) 120px, hsla(197, 62%, 11%, 0.5) 140px), repeating-linear-gradient(135deg, transparent 5px, hsla(197, 62%, 11%, 0.5) 5px, hsla(197, 62%, 11%, 0.5) 10px, hsla(5, 53%, 63%, 0) 10px, hsla(5, 53%, 63%, 0) 35px, hsla(5, 53%, 63%, 0.5) 35px, hsla(5, 53%, 63%, 0.5) 40px, hsla(197, 62%, 11%, 0.5) 40px, hsla(197, 62%, 11%, 0.5) 50px, hsla(197, 62%, 11%, 0) 50px, hsla(197, 62%, 11%, 0) 60px, hsla(5, 53%, 63%, 0.5) 60px, hsla(5, 53%, 63%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 70px, hsla(35, 91%, 65%, 0.5) 80px, hsla(35, 91%, 65%, 0) 80px, hsla(35, 91%, 65%, 0) 90px, hsla(5, 53%, 63%, 0.5) 90px, hsla(5, 53%, 63%, 0.5) 110px, hsla(5, 53%, 63%, 0) 110px, hsla(5, 53%, 63%, 0) 140px, hsla(197, 62%, 11%, 0.5) 140px, hsla(197, 62%, 11%, 0.5) 160px)
+        // position-y: -750px
+        position-y: -800px
+        size: cover
+      flex-wrap: wrap
+      height: 600px
+      justify-content: center
+      width: 100%
+      .forumpost
+        margin-bottom: 0
+        &:first-of-type
+          border: none
+          height: 100%
+          max-width: 100%
+          width: inherit
+          >p
+            @include font(Lato, Bold, $x-large, $xx-large, uppercase) // $SansSerifBold
+            letter-spacing: .2rem
+            margin-top: -4rem // Duas vezes o line-height, considerando duas linhas de texto
+            position: absolute
+            text-align: center
+            // text-transform: uppercase
+            top: 50%
+            width: 100%
+        &:not(:first-of-type)
+          @include calc(margin-top, "-125px - (#{$gutter} * 1.5)") // 125px é a altura do elemento
+          background-color: transparentize(White, .9)
+          border: 1px solid White
+          height: 125px
+          max-width: 375px
+          overflow-y: hidden // Temporário
+          padding-right: $gutter / 2
+          width: 26%
+          >*
+            float: left
+          img
+            margin:
+              left: 0 !important
+              right: $gutter / 2
+        &:nth-of-type(3) // O .forumpost do meio (3º na ordem) possui margem dos dois lados
+          margin:
+            left: $gutter
+            right: $gutter
+        >p
+          color: White
+      >h2,
+      .forumolddiscuss
+        display: none
+  // Informações sobre os cursos da UniSERPRO
+  #courses-info
+    background-color: $gray-4
+    color: $gray-0
+    min-height: 500px
+    padding: ($gutter * 2) $gutter
+    h2
+      font: $SansSerifBold
+      text-transform: uppercase
+    h2,
+    p
+      @include calc(max-width, "100% - 520px - #{$gutter}")
+      float: left
+    img
+      box-shadow: $shadow-1
+      margin-left: $gutter
+    .signup
+      a
+        @include pill($orange)
+    .signup,
+    .anchorto-logininfo
+      margin: 0 ($gutter / 2)
+    .anchorto-logininfo
+      a
+        @include pill($blue-1)
+
+  // Categorias
+  #frontpage-category-names
+    h2
+      @include font(Lato, Bold, $large)
+      margin-top: $gutter * 3
+    h2,
+    .category-intro
+      padding: 0 20%
+      text-align: center
+    .subcategories
+      @include display(flex)
+      justify-content: center // space-around
+      padding: ($gutter * 2) 0
+    .category
+      @include size(240px 320px)
+      background-color: $gray-0
+      margin: 0 ($gutter * 1.5)
+      outline: 1px solid $gray-2
+      overflow-y: hidden
+      padding: 110px $gutter $gutter
+      position: relative
+      .info
+        @include size((240px - $gutter * 2) ($gutter * 3))
+        display: table-cell
+        text-align: center
+        vertical-align: middle
+        h3
+          margin: 0
+          text-transform: uppercase
+        span
+          display: none
+      .content
+        font-size: 15px // Temporário
+        height: 210px
+        img
+          @include position(absolute, 0 null null 0)
+          border-bottom: 1px solid $gray-2
+      &:hover
+        background-color: White
+        .info h3 a
+          text-decoration: underline
+        .content
+          color: $gray-4
+    .courses.category-browse,
+    .collapsible-actions
+      display: none

@@ -1,0 +1,124 @@
+input
+  border: 1px solid transparentize($gray-3, .5) // !important
+  line-height: 35px // Temporário
+  padding: 0 5px
+  &[type="text"],
+  &[type="password"]
+    @include border-radius(17px)
+    @include placeholder
+      @include transition(color 1s)
+    @include transition(background-color 2s, border-color 1s, box-shadow 1s, color .5s)
+    &:hover
+      @include placeholder
+        color: transparentize($gray-3, .5)
+    &:hover,
+    &:focus
+      box-shadow: $inner-shadow
+    &:focus
+      @include placeholder
+        color: $gray-1
+      background-color: transparentize($blue-0, .5)
+      border-color: transparentize($gray-3, .2)
+      outline: none
+  &[type="checkbox"],
+  &[type="radio"]
+    display: none
+    & + label:before
+      @include border-radius(4px)
+      @include size($x-small)
+      @include transition(background-color .5s, color .5s)
+      background-color: $gray-1
+      border: 1px solid $gray-2
+      color: transparent
+      content: "\2713"
+      display: inline-block
+      font-size: $xx-small
+      line-height: $x-small
+      margin-right: 5px
+      text-align: center
+    & + label:hover:before
+      background-color: White
+    &:checked + label:before
+      background-color: $green
+      border-color: transparent
+      color: White
+      // content: "\2713"
+      // text-shadow: 1px 1px 1px rgba(0, 0, 0, .2)
+  // &[type="radio"]
+  //   content: "\2022"
+  //   color: #f3f3f3
+  //   font-size: 30px
+  //   text-align: center
+  //   line-height: 18px
+
+// Caixa de login/logout
+.logininfobox
+  label:not([for="rememberusername"])
+    @include font(Roboto, Regular, $x-small, $x-large, uppercase)
+  input
+    &:not([type="checkbox"])
+      @include border-radius(4px)
+      width: 100%
+    &[type="submit"]
+      color: White
+      height: $gutter * 2
+      margin: ($gutter / 2) 0
+  #login input[type="submit"]
+    background-color: $blue-1
+    border: 1px solid darken($blue-1, 10%)
+  #guestlogin input[type="submit"]
+    background-color: $green // $gray-3
+    border: 0
+  .form-label,
+  .rememberpass
+    margin-top: $gutter / 2
+  .rememberpass,
+  .forgetpass,
+  .desc,
+  .guestsub
+    @include font(Roboto, Light, $x-small)
+  .desc
+    .helptooltip
+      margin-left: 5px
+      vertical-align: middle
+  // Mensagem de erro
+  .loginerrors
+    font:
+      size: 1rem
+      weight: bold
+    margin-bottom: 10px
+    img
+      margin-right: 5px
+
+// Caixa da busca de cursos
+#coursesearch
+  text-align: center
+  fieldset
+    border: none
+    display: inline-block
+    padding: 0
+    position: relative
+    // Cria o corpo da lupa
+    &:after
+      @include transform(rotate(45deg))
+      background-color: transparentize($gray-3, .5)
+      content: ""
+      height: 3px
+      width: 9px
+      position: absolute
+      left: 21px
+      top: 24px
+  input
+    &[type="text"]
+      padding-left: $gutter * 1.5
+    // Transforma o botão 'Vai' na lente da lupa
+    &[type="submit"]
+      @include border-radius(8px)
+      background-color: transparent
+      border: 2px solid transparentize($gray-3, .5)
+      height: 17px
+      left: 8px
+      position: absolute
+      text-indent: -9999px
+      top: 8px
+      width: 17px

@@ -1,0 +1,83 @@
+body.has_dock
+  background: $coluna-esquerda-has-dock
+  #page
+    margin-left: $dock
+    padding-left: 0 // $dock
+    #region-main
+      +no-gutter-has-dock(9)
+    #page-footer
+      +calc(width, "100% - #{$dock}")
+  header[role="banner"] nav[role="navigation"]
+    box-shadow: $sombra-barra-has-dock !important
+    .ministerio > p,
+    .escola
+      padding-left: 50px
+  .jumpto_menu
+    left: calc(#{$grid} * 3 + #{$dock}) // Para posicionamento e medidas adequadas com 'position: fixed'
+
+
+#dock
+  // background-color: $bege-escuro
+  background: linear-gradient(to bottom, transparent 0%, transparent $dock-margin-top, $cinza-branco $dock-margin-top, $cinza-branco 100%)
+  box-shadow: $sombra-dock
+  z-index: 2
+  // .buttons_container
+  //   box-shadow: $sombra-input-submit // 1px 2px 6px 2px rgba(0,0,0,.2)
+  &,
+  .buttons_container,
+  .dockeditem_container,
+  .dockeditem,
+  .dockedtitle
+    width: $dock
+  .dockeditem
+    border:
+      color: Gainsboro // mix($cinza-claro, Gainsboro)
+      style: solid
+      width: 0 0 1px 0
+    // &:hover
+    //   background-color: White
+    //   border-color: Gainsboro
+    &:last-child
+      border-bottom: 0
+  .dockedtitle
+    border: 0
+    +border-radius(0)
+    box-shadow: none
+    margin: 0
+    > div
+      background-color: $cinza-branco
+      h2
+        color: $cinza
+        &:hover
+          color: $cinza-escuro
+    &.activeitem
+      box-shadow: $sombra-input-submit
+      > div
+        background-color: White
+        h2
+          color: $cinza-escuro
+  // O bloco aberto
+  #dockeditempanel
+    padding-left: 0
+    // width: ... // Precisa ser em px, então serah definido por script
+    .dockeditempanel_content
+      background-color: White // $cinza-branco
+      border-width: 0 1px 1px 0
+      +border-radius(0)
+      box-shadow: $sombra-input-submit // none
+      .dockeditempanel_hd
+        +clearfix
+      h2
+        color: $cinza-escuro
+        float: right
+        font-weight: normal
+      .commands
+        float: left
+      .content
+        background-color: transparent !important
+        padding-left: $dock
+  .pagelayout-course &,
+  .pagelayout-incourse &
+    box-shadow: $sombra-dock-course
+    .dockeditem_container
+      margin-top: $dock-margin-top + $barra-escola // 'margin-top' original + 55px da altura da barra da escola

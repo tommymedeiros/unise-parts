@@ -1,0 +1,64 @@
+// Simplifica o uso dos mixins de border-radius do Bourbon
+@mixin border-radius($radius)
+  @include border-top-radius($radius)
+  @include border-right-radius($radius)
+  @include border-bottom-radius($radius)
+  @include border-left-radius($radius)
+
+// Facilita a configuração das fontes
+@mixin font($family, $type, $size: $medium, $line-height: normal, $text-transform: none, $style: normal, $variant: normal, $weight: normal)
+  @if $type == Light
+    $weight: 300
+    @if $family == Roboto
+      $family: "Roboto Light", sans-serif
+  @if $type == Regular
+    $weight: 400
+    @if $family == Lato
+      $family: "Lato Regular"
+      $text-transform: uppercase
+    @if $family == OpenSans
+      $family: "OpenSans Regular"
+    @if $family == Roboto
+      $family: "Roboto Regular", sans-serif
+      @if $text-transform == uppercase
+        text-transform: uppercase
+  @if $type == Bold
+    $weight: 700
+    @if $family == Lato
+      $family: "Lato Bold", sans-serif
+      text-transform: uppercase
+  font: $style $variant $weight $size/#{$line-height} $family
+
+// Mixin para esconder elementos, mantendo a acessibilidade
+@mixin hide
+  @include size(1px)
+  left: -9999px
+  overflow: hidden
+  position: absolute
+  top: auto
+  &:focus
+    @include size(auto)
+    position: static
+
+// Define os links em forma de pílula
+@mixin pill($background-color)
+  @include border-radius($gutter)
+  @include transition(background-color 1s, box-shadow 1s)
+  background-color: $background-color
+  color: $gray-0
+  display: inline-block
+  line-height: 35px
+  padding: 0 $gutter
+  text-transform: uppercase
+  &:hover
+    background-color: adjust_color($background-color, $saturation: 30%) // lighten($background-color, 10%)
+    color: White
+  &:hover
+    box-shadow: $shadow-1
+
+// // Remove o 'gutter'
+// =no-gutter($sp)
+//   width: $grid * $sp
+
+// =no-gutter-has-dock($sp)
+//   width: calc($grid * $sp - $dock)
